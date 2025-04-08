@@ -203,10 +203,10 @@ describe('Sign Up Cases', () => {
             await allowButton.click();
             console.log("Permission allow button clicked.");
         } else {
-            console.log("Permission allow button not displayed.");
+            console.log("Permission allow button not displayed");
         }
 
-        
+
     })
 
 
