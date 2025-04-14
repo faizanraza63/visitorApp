@@ -12,7 +12,7 @@ export const config = {
     platformName: 'Android',
     'appium:deviceName': 'Samsung Galaxy S21',
     'appium:platformVersion': '12',
-    'appium:app': 'https://docs.google.com/uc?export=download&id=1_JT_H8U_jWIySRk-x-5bXyo5ltZ8NfNV',  // or your .apk upload URL
+    'appium:app': 'https://www.dropbox.com/scl/fi/4p33k0vi9pi5cchpu0crq/VisitorApp.apk?rlkey=w9md95pgewo3bjr3og6x78ikg&st=u2wrfcww&dl=1',  // or your .apk upload URL
     'appium:automationName': 'UiAutomator2',
   }]
 };
