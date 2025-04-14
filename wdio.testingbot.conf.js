@@ -1,6 +1,6 @@
 import * as base from './wdio.conf.js'
 
-exports.config = {
+export const config = {
   ...base.config,
   hostname: 'hub.testingbot.com',
   port: 443,
