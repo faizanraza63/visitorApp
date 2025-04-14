@@ -10,9 +10,9 @@ export const config = {
 
   capabilities: [{
     platformName: 'Android',
-    deviceName: 'Samsung Galaxy S21',
-    platformVersion: '12',
-    app: 'https://docs.google.com/uc?export=download&id=1_JT_H8U_jWIySRk-x-5bXyo5ltZ8NfNV',  // or your .apk upload URL
-    automationName: 'UiAutomator2',
+    'appium:deviceName': 'Samsung Galaxy S21',
+    'appium:platformVersion': '12',
+    'appium:app': 'https://docs.google.com/uc?export=download&id=1_JT_H8U_jWIySRk-x-5bXyo5ltZ8NfNV',  // or your .apk upload URL
+    'appium:automationName': 'UiAutomator2',
   }]
 };
