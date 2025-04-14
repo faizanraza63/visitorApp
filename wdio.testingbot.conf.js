@@ -1,4 +1,4 @@
-import * as base from './wdio.local.conf.js'
+import * as base from './wdio.conf.js'
 
 exports.config = {
   ...base.config,
