@@ -1,4 +1,4 @@
-const base = require('./wdio.local.conf.js');
+import base from './wdio.conf.js'
 
 exports.config = {
   ...base.config,
