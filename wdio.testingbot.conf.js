@@ -6,14 +6,19 @@ export const config = {
   port: 443,
   path: '/wd/hub',
 
-  user: process.env.TB_KEY,
-  key: process.env.TB_SECRET,
 
   services: ['testingbot'],
+testingbot: {
+  key: process.env.TB_KEY,
+  secret: process.env.TB_SECRET,
+},
+
+connectionRetryTimeout: 180000, // 3 minutes
+connectionRetryCount: 3,
 
   capabilities: [{
     platformName: 'Android',
-    'appium:deviceName': 'Samsung Galaxy S21',
+    'appium:deviceName': 'Android Emulator',
     'appium:platformVersion': '12',
     'appium:app': 'tb://f19587093a35dd4b5f15ac6f',  // or your .apk upload URL
     'appium:automationName': 'UiAutomator2',
