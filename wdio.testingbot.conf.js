@@ -5,8 +5,8 @@ export const config = {
   hostname: 'hub.testingbot.com',
   port: 443,
   path: '/wd/hub',
-  user: process.env.TESTINGBOT_KEY,
-  key: process.env.TESTINGBOT_SECRET,
+  user: process.env.TB_KEY,
+  key: process.env.TB_SECRET,
 
   capabilities: [{
     platformName: 'Android',
