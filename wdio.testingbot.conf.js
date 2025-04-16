@@ -2,6 +2,7 @@ import * as base from './wdio.conf.js'
 
 export const config = {
   ...base.config,
+  protocol: 'https',
   hostname: 'hub.testingbot.com',
   port: 443,
   path: '/wd/hub',
