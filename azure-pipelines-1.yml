@@ -15,9 +15,11 @@ steps:
 
 - task: TBMain@0
   inputs:
-    connectedServiceName: 'testingbot'
+    connectedServiceName: 'testingbot service'
 
 - script: |
-    echo Add other tasks to build, test, and deploy your project.
-    echo See https://aka.ms/yaml
-  displayName: 'Run a multi-line script'
+      export TB_KEY=$TB_KEY
+      export TB_SECRET=$TB_SECRET
+      npx wdio run wdio.testingbot.conf.js
+  displayName: 'Running Tests'
+
