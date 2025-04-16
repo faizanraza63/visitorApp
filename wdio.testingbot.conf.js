@@ -22,6 +22,10 @@ connectionRetryCount: 3,
     'appium:platformVersion': '12',
     'appium:app': 'tb://f19587093a35dd4b5f15ac6f',  // or your .apk upload URL
     'appium:automationName': 'UiAutomator2',
-    'build' : 'TB Build-01',
+    'tb:options': {
+     build: 'TB Build-01',
+     name: 'VisitorApp Tests',
+     tags: ['azure', 'appium', 'android']
+  }
   }],
 };
