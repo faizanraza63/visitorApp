@@ -4,6 +4,10 @@ trigger:
 pool:
   vmImage: ubuntu-latest
 
+variables:
+  TB_KEY: 'c8a2fdeacfb79fd59689a40a3a84f0dc'
+  TB_SECRET: '4a78da7741abf8784b9b64d370f3c204'
+
 steps:
 - script: echo Hello, world!
   displayName: 'Run a one-line script'
