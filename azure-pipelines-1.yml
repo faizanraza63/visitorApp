@@ -18,6 +18,19 @@ steps:
     connectedServiceName: 'testingbot service'
 
 - script: |
+      curl -I https://hub.testingbot.com/wd/hub/status
+  displayName: "Check TestingBot Connectivity"
+
+- script: |
+      echo "TB_KEY is: $TB_KEY"
+      echo "TB_SECRET is: $TB_SECRET"
+      env | grep TB_
+  env:
+      TB_KEY: $(TESTINGBOT_KEY)
+      TB_SECRET: $(TESTINGBOT_SECRET)
+  displayName: "Check Variables Value"
+
+- script: |
     npm install -g appium
     npm install -g appium-doctor
   displayName: 'Install Appium & Appium doctor'
