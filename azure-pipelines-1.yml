@@ -19,9 +19,8 @@ steps:
   displayName: 'Install Appium & Appium doctor'
 
 # Optional: Appium Doctor (auto-confirmed)
-- script: |
-    yes | appium doctor
-  displayName: 'Run Appium Doctor (auto-confirm)'
+- script: appium-doctor
+  displayName: 'Run Appium Doctor'
 
 # Install dependencies (optional but highly recommended)
 - script: |
