@@ -1,8 +1,3 @@
-# Starter pipeline
-# Start with a minimal pipeline that you can customize to build and deploy your code.
-# Add steps that build, run tests, deploy, and more:
-# https://aka.ms/yaml
-
 trigger:
 - main
 
@@ -13,17 +8,24 @@ steps:
 - script: echo Hello, world!
   displayName: 'Run a one-line script'
 
+# Optional: If using TestingBot CLI tasks
 - task: TBMain@0
   inputs:
     connectedServiceName: 'testingbot service'
 
+# Optional: Appium Doctor (auto-confirmed)
 - script: |
-    yes | appium &
-  displayName: 'Start Appium Server'
+    yes | appium doctor
+  displayName: 'Run Appium Doctor (auto-confirm)'
 
+# Install dependencies (optional but highly recommended)
 - script: |
-      export TB_KEY=$TB_KEY
-      export TB_SECRET=$TB_SECRET
-      npx wdio run wdio.testingbot.conf.js
+    npm ci
+  displayName: 'Install NPM packages'
+
+# Run WebDriverIO Tests
+- script: |
+    export TB_KEY=$TB_KEY
+    export TB_SECRET=$TB_SECRET
+    npx wdio run wdio.testingbot.conf.js
   displayName: 'Running Tests'
-
