@@ -13,6 +13,10 @@ steps:
   inputs:
     connectedServiceName: 'testingbot service'
 
+- script: |
+    npm install -g appium
+  displayName: 'Install Appium'
+
 # Optional: Appium Doctor (auto-confirmed)
 - script: |
     yes | appium doctor
