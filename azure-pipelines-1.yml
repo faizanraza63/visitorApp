@@ -15,7 +15,8 @@ steps:
 
 - script: |
     npm install -g appium
-  displayName: 'Install Appium'
+    npm install -g appium-doctor
+  displayName: 'Install Appium & Appium doctor'
 
 # Optional: Appium Doctor (auto-confirmed)
 - script: |
