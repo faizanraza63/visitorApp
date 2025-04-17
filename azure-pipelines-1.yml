@@ -52,6 +52,7 @@ steps:
     echo "Running tests with TB_KEY=$TB_KEY"
     npx wdio run wdio.testingbot.conf.js
   env:
+    NODE_OPTIONS: --dns-result-order=ipv4first 
     TB_KEY: $(TB_KEY)
     TB_SECRET: $(TB_SECRET)
   displayName: 'Run WebDriverIO Tests'
