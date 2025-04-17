@@ -42,7 +42,7 @@ describe('First Test', () => {
     })
 
 
-    it.only('Messages 002-Go to Messages', async () => {
+    it('Messages 002-Go to Messages', async () => {
     
        
         

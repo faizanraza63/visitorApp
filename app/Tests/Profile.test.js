@@ -6,7 +6,7 @@ describe('First Test', () => {
     it('Profile 001- Go to Home Screen', async () => {
     
     
-
+        
         
         const locationPopup = await driver.$('//android.widget.Button[@text="While using the app"]');
     
