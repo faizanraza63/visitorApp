@@ -28,7 +28,7 @@ connectionRetryCount: 3,
 
   capabilities: [{
     platformName: 'Android',
-    'appium:deviceName': 'Samsung Galaxy S21',
+    'appium:deviceName': 'Galaxy S21',
     'appium:platformVersion': '11',
     'appium:app': 'tb://f19587093a35dd4b5f15ac6f',  // or your .apk upload URL
     'appium:automationName': 'UiAutomator2',
