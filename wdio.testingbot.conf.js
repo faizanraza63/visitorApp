@@ -3,6 +3,10 @@ import * as base from './wdio.conf.js'
 console.log('TestingBot credentials:', process.env.TB_KEY, process.env.TB_SECRET);
 
 export const config = {
+
+  user: process.env.TB_KEY,
+  key: process.env.TB_SECRET,
+  
   ...base.config,
   protocol: 'https',
   hostname: 'hub.testingbot.com',
@@ -32,6 +36,6 @@ connectionRetryCount: 3,
      build: 'TB Build-01',
      name: 'VisitorApp Tests',
      tags: ['azure', 'appium', 'android']
-  }
+  },
   }],
 };
