@@ -6,7 +6,7 @@ describe('First Test', () => {
     it('Profile 001- Go to Home Screen', async () => {
     
     
-        
+
         
         const locationPopup = await driver.$('//android.widget.Button[@text="While using the app"]');
     
@@ -46,13 +46,13 @@ describe('First Test', () => {
 
     it('Profile 002-Go to Profile', async () => {
     
-        // await driver.$('//android.widget.EditText[@text="Your email address"]').setValue("visitor007@yopmail.com");;
-        // await driver.$("//android.widget.TextView[@text='CONTINUE' and @clickable='false' and @enabled='true']").click();
-        // await driver.$('(//android.widget.EditText[@resource-id="textInput"])[1]').setValue("0");
-        // await driver.$('(//android.widget.EditText[@resource-id="textInput"])[2]').setValue("8");
-        // await driver.$('(//android.widget.EditText[@resource-id="textInput"])[3]').setValue("5");
-        // await driver.$('(//android.widget.EditText[@resource-id="textInput"])[4]').setValue("2");
-        // await driver.$("//android.widget.TextView[@text='VERIFY' and @clickable='false' and @enabled='true']").click();
+        await driver.$('//android.widget.EditText[@text="Your email address"]').setValue("visitor007@yopmail.com");;
+        await driver.$("//android.widget.TextView[@text='CONTINUE' and @clickable='false' and @enabled='true']").click();
+        await driver.$('(//android.widget.EditText[@resource-id="textInput"])[1]').setValue("0");
+        await driver.$('(//android.widget.EditText[@resource-id="textInput"])[2]').setValue("8");
+        await driver.$('(//android.widget.EditText[@resource-id="textInput"])[3]').setValue("5");
+        await driver.$('(//android.widget.EditText[@resource-id="textInput"])[4]').setValue("2");
+        await driver.$("//android.widget.TextView[@text='VERIFY' and @clickable='false' and @enabled='true']").click();
 
         
         await driver.$("//android.widget.TextView[@text='' and @clickable='false' and @enabled='true']").click()
