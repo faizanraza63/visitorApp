@@ -1,5 +1,7 @@
 import * as base from './wdio.conf.js'
 
+console.log('TestingBot credentials:', process.env.TB_KEY, process.env.TB_SECRET);
+
 export const config = {
   ...base.config,
   protocol: 'https',
@@ -12,7 +14,10 @@ export const config = {
 testingbot: {
   key: process.env.TB_KEY,
   secret: process.env.TB_SECRET,
+  
 },
+
+
 
 connectionRetryTimeout: 180000, // 3 minutes
 connectionRetryCount: 3,
