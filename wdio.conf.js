@@ -54,8 +54,7 @@ export const config = {
     capabilities: [{
         // capabilities for local Appium web tests on an Android Emulator
         platformName: 'Android',
-        'appium:deviceName': 'Android Device',
-        'appium:platformVersion': '13',
+        'appium:deviceName': 'emulator-5554',
         'appium:app': 'H:/Appium/app/VisitorApp.apk',
         'appium:noReset': true,
         'appium:automationName': 'UiAutomator2'
@@ -108,10 +107,10 @@ export const config = {
     // Services take over a specific job you don't want to take care of. They enhance
     // your test setup with almost no effort. Unlike plugins, they don't adabdd new
     // commands. Instead, they hook themselves up into the test process.
-   /*  services: ['appium'],
+     services: ['appium'],
      port: 4723,
      hostname: 'localhost',
-     path: '/wd/hub', */
+     path: '/wd/hub', 
     //
     // Framework you want to run your specs with.
     // The following are supported: Mocha, Jasmine, and Cucumber
