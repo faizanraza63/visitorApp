@@ -107,8 +107,8 @@ describe('First Test', () => {
         phoneNumberField.setValue("3301010339")
         await driver.hideKeyboard()
         await driver.$("//android.widget.TextView[@text='CHANGE NUMBER' and @enabled='true']").click()
-
         
+
         await driver.$('(//android.widget.EditText[@resource-id="textInput"])[1]').setValue("0");
         await driver.$('(//android.widget.EditText[@resource-id="textInput"])[2]').setValue("8");
         await driver.$('(//android.widget.EditText[@resource-id="textInput"])[3]').setValue("5");
@@ -201,8 +201,6 @@ describe('First Test', () => {
 
         await driver.$('//android.widget.EditText[@text="Email"]').setValue(emailText)
         await driver.$('//android.widget.TextView[@text="DELETE MY ACCOUNT"]').click()
-
-
 
     })
      
