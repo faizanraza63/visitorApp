@@ -42,7 +42,7 @@ describe('First Test', () => {
     })
 
 
-    it.only('Notifications 002-Go to notification', async () => {
+    it('Notifications 002-Go to notification', async () => {
     
        
         

@@ -42,12 +42,42 @@ describe('First Test', () => {
     })
 
 
-    it.only('Messages 002-Go to Messages', async () => {
+    it('Messages 002- SignIn with valid Email',async () => 
+        {
+            await driver.$('//android.widget.EditText[@text="Your email address"]').setValue("visitor007@yopmail.com");;
+            await driver.$("//android.widget.TextView[@text='CONTINUE' and @clickable='false' and @enabled='true']").click();
+            await driver.$('(//android.widget.EditText[@resource-id="textInput"])[1]').setValue("0");
+            await driver.$('(//android.widget.EditText[@resource-id="textInput"])[2]').setValue("8");
+            await driver.$('(//android.widget.EditText[@resource-id="textInput"])[3]').setValue("5");
+            await driver.$('(//android.widget.EditText[@resource-id="textInput"])[4]').setValue("2");
+            await driver.$("//android.widget.TextView[@text='VERIFY' and @clickable='false' and @enabled='true']").click();
+            
+            
+    
+            const allowButton = await driver.$('//android.widget.Button[@resource-id="com.android.permissioncontroller:id/permission_allow_button"]');
+            
+            // Wait up to 5 seconds for the button to exist
+            await allowButton.waitForExist({ timeout: 5000 });
+    
+            // Check if the button is visible and click it
+            if (await allowButton.isDisplayed()) {
+                await allowButton.click();
+                console.log("Permission allow button clicked.");
+            } else {
+                console.log("Permission allow button not displayed.");
+            }
+    
+            
+        })
+    
+
+
+    it('Messages 003-Go to Messages', async () => {
     
        
         
-        //await driver.$("//android.widget.TextView[@text='' and @clickable='false' and @enabled='true']").click()
-        await driver.$('android=new UiSelector().text("")').click();
+        await driver.$("//android.widget.TextView[@text='' and @clickable='false' and @enabled='true']").click()
+        //await driver.$('android=new UiSelector().text("")').click();
         await driver.$("(//android.widget.TextView[@text='Messages' and @clickable='false' and @enabled='true'])").click();
     })
     

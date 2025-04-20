@@ -6,7 +6,7 @@ describe('Sign Up Cases', () => {
     it('SignUp 001- Go to Home Screen', async () => {
 
 
-    
+        
     
         const locationPopup = await driver.$('//android.widget.Button[@text="While using the app"]');
     
@@ -47,7 +47,7 @@ describe('Sign Up Cases', () => {
     } )
 
 
-    it.only('Sign up 002- Sign UP Process',async () => {
+    it('Sign up 002- Sign UP Process',async () => {
 
        const randomNumber = Math.floor(Math.random() * 50)
         await driver.$('//android.widget.EditText[@text="Your email address"]').setValue("testvisitor"+randomNumber+"@yopmail.com");
@@ -203,7 +203,7 @@ describe('Sign Up Cases', () => {
             await allowButton.click();
             console.log("Permission allow button clicked.");
         } else {
-            console.log("Permission allow button not displayed");
+            console.log("Permission allow button not displayed....");
         }
 
 
