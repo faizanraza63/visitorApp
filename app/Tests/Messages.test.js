@@ -65,6 +65,9 @@ describe('First Test', () => {
                 console.log("Permission allow button clicked.");
             } else {
                 console.log("Permission allow button not displayed.");
+
+                await driver.$("//android.widget.TextView[@text='' and @clickable='false' and @enabled='true']").click()
+                await driver.$("(//android.widget.TextView[@text='Messages' and @clickable='false' and @enabled='true'])").click();
             }
     
             
@@ -77,9 +80,14 @@ describe('First Test', () => {
        
         
         await driver.$("//android.widget.TextView[@text='' and @clickable='false' and @enabled='true']").click()
-        //await driver.$('android=new UiSelector().text("")').click();
         await driver.$("(//android.widget.TextView[@text='Messages' and @clickable='false' and @enabled='true'])").click();
+
+        await browser.pause(1000)
+
+        await driver.terminateApp("visitor.mygatepass.com");
+        await driver.removeApp("visitor.mygatepass.com")
     })
     
+
 
 })
