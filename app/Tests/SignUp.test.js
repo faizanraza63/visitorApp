@@ -207,6 +207,11 @@ describe('Sign Up Cases', () => {
         }
 
 
+        await driver.pause(1500)
+        await driver.terminateApp("visitor.mygatepass.com");
+        await driver.removeApp("visitor.mygatepass.com")
+
+
     })
 
 

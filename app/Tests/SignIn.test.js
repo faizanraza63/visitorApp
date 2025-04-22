@@ -69,15 +69,8 @@ it('SignIn 001- Go to Home Screen', async () => {
      
      
      await driver.pause(1500)
-
-
-     
-
-
-
-    
-    // await driver.terminateApp("visitor.mygatepass.com");
-    // await driver.removeApp("visitor.mygatepass.com")
+    await driver.terminateApp("visitor.mygatepass.com");
+    await driver.removeApp("visitor.mygatepass.com")
 
 
 } )

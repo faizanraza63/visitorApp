@@ -82,7 +82,12 @@ describe('First Test', () => {
        // await driver.$('android=new UiSelector().text("")').click();
 
         await driver.$("(//android.widget.TextView[@text='Notifications' and @clickable='false' and @enabled='true'])").click();
+
+        await driver.pause(1500)
+        await driver.terminateApp("visitor.mygatepass.com");
+        await driver.removeApp("visitor.mygatepass.com")
     })
     
+  
 
 })
