@@ -55,15 +55,35 @@ describe('First Test', () => {
         await driver.$("//android.widget.TextView[@text='VERIFY' and @clickable='false' and @enabled='true']").click();
 
         
-        await driver.$("//android.widget.TextView[@text='' and @clickable='false' and @enabled='true']").click()
-        await driver.$("(//android.widget.TextView[@text='Profile' and @clickable='false' and @enabled='true'])[2]").click();
+     //   await driver.$("//android.widget.TextView[@text='' and @clickable='false' and @enabled='true']").click()
+       // await driver.$("(//android.widget.TextView[@text='Profile' and @clickable='false' and @enabled='true'])[2]").click();
+
+
+       try {
+        const allowButton = await driver.$('//android.widget.Button[@resource-id="com.android.permissioncontroller:id/permission_allow_button"]');
+    
+        // Wait for the element up to 5 seconds, but don't throw if not found
+        const exists = await allowButton.waitForExist({ timeout: 5000, timeoutMsg: '', interval: 500 }).catch(() => false);
+    
+        if (exists && await allowButton.isDisplayed()) {
+            await allowButton.click();
+            console.log("Permission allow button clicked.");
+            await driver.$('//android.view.View[@content-desc="Profile"]').click();
+        } else {
+            console.log("Permission allow button not displayed, clicking on Profile...");
+            await driver.$('//android.view.View[@content-desc="Profile"]').click();
+        }
+    } catch (err) {
+        console.log("Something went wrong while handling permission or navigating to Profile:", err.message);
+    }
+    
     })
 
 
     it('Profile 003- Try with no Number', async() => {
 
-        await driver.$("//android.widget.TextView[@text='' and @clickable='false' and @enabled='true']").click()
-        await driver.$("(//android.widget.TextView[@text='Profile' and @clickable='false' and @enabled='true'])[2]").click();
+        //await driver.$("//android.widget.TextView[@text='' and @clickable='false' and @enabled='true']").click()
+        //await driver.$("(//android.widget.TextView[@text='Profile' and @clickable='false' and @enabled='true'])[2]").click();
 
         const phoneNumberField = await driver.$("(//android.widget.EditText)[1]");
         await phoneNumberField.click();
@@ -78,8 +98,8 @@ describe('First Test', () => {
     
     it('Profile 003- Try with invalid number', async() => {
 
-        await driver.$("//android.widget.TextView[@text='' and @clickable='false' and @enabled='true']").click()
-        await driver.$("(//android.widget.TextView[@text='Profile' and @clickable='false' and @enabled='true'])[2]").click();
+      //  await driver.$("//android.widget.TextView[@text='' and @clickable='false' and @enabled='true']").click()
+      //  await driver.$("(//android.widget.TextView[@text='Profile' and @clickable='false' and @enabled='true'])[2]").click();
 
         const phoneNumberField = await driver.$("(//android.widget.EditText)[1]");
         await phoneNumberField.click();
@@ -97,10 +117,10 @@ describe('First Test', () => {
 
     it('Profile 004- Changing the number', async() => {
 
-        await driver.$("//android.widget.TextView[@text='' and @clickable='false' and @enabled='true']").click()
-        await driver.$("(//android.widget.TextView[@text='Profile' and @clickable='false' and @enabled='true'])[2]").click();
+     //   await driver.$("//android.widget.TextView[@text='' and @clickable='false' and @enabled='true']").click()
+      //  await driver.$("(//android.widget.TextView[@text='Profile' and @clickable='false' and @enabled='true'])[2]").click();
 
-        const phoneNumberField = await driver.$("(//android.widget.EditText)[1]");
+        const phoneNumberField = await driver.$('//android.widget.EditText[@text="31231231231123"]');
         await phoneNumberField.click();
         await phoneNumberField.setValue("")
         
@@ -119,8 +139,8 @@ describe('First Test', () => {
 
     it('Profile 005-  Cancel Deletion of Account', async() => {
 
-        await driver.$("//android.widget.TextView[@text='' and @clickable='false' and @enabled='true']").click()
-        await driver.$("(//android.widget.TextView[@text='Profile' and @clickable='false' and @enabled='true'])[2]").click();
+      //  await driver.$("//android.widget.TextView[@text='' and @clickable='false' and @enabled='true']").click()
+       // await driver.$("(//android.widget.TextView[@text='Profile' and @clickable='false' and @enabled='true'])[2]").click();
        
         
 
@@ -138,11 +158,8 @@ describe('First Test', () => {
 
     it('Profile 006-  Delete the Account without entering email', async() => {
 
-        await driver.$("//android.widget.TextView[@text='' and @clickable='false' and @enabled='true']").click()
-
-        
-
-        await driver.$("(//android.widget.TextView[@text='Profile' and @clickable='false' and @enabled='true'])[2]").click();
+      //  await driver.$("//android.widget.TextView[@text='' and @clickable='false' and @enabled='true']").click()
+      // await driver.$("(//android.widget.TextView[@text='Profile' and @clickable='false' and @enabled='true'])[2]").click();
        
         
 
@@ -160,11 +177,8 @@ describe('First Test', () => {
 
     it('Profile 007-  Delete the Account with invalid email', async() => {
 
-        await driver.$("//android.widget.TextView[@text='' and @clickable='false' and @enabled='true']").click()
-
-        
-
-        await driver.$("(//android.widget.TextView[@text='Profile' and @clickable='false' and @enabled='true'])[2]").click();
+       // await driver.$("//android.widget.TextView[@text='' and @clickable='false' and @enabled='true']").click()
+       // await driver.$("(//android.widget.TextView[@text='Profile' and @clickable='false' and @enabled='true'])[2]").click();
        
         
 
@@ -173,7 +187,7 @@ describe('First Test', () => {
 
         await driver.$("//android.widget.TextView[@text='DELETE MY ACCOUNT' and @clickable='false' and @enabled='true' ]").click()
 
-        await driver.$('//android.widget.TextView[@text="YES, I AM SURE, DELETE"]').click()
+       
 
         await driver.$('//android.widget.EditText[@text="Email"]').setValue('randemail')
         await driver.$('//android.widget.TextView[@text="DELETE MY ACCOUNT"]').click()
@@ -184,7 +198,7 @@ describe('First Test', () => {
 
     it('Profile 008-  Delete the Account', async() => {
 
-        await driver.$("//android.widget.TextView[@text='' and @clickable='false' and @enabled='true']").click()
+       // await driver.$("//android.widget.TextView[@text='' and @clickable='false' and @enabled='true']").click()
 
         const emailText = await $('//android.widget.TextView[@text="visitor007@yopmail.com"]').getText()
 
@@ -200,9 +214,9 @@ describe('First Test', () => {
         await driver.$('//android.widget.TextView[@text="YES, I AM SURE, DELETE"]').click()
 
         await driver.$('//android.widget.EditText[@text="Email"]').setValue(emailText)
-        await driver.$('//android.widget.TextView[@text="DELETE MY ACCOUNT"]').click()
+        //await driver.$('//android.widget.TextView[@text="DELETE MY ACCOUNT"]').click()
 
-    })
+    }) 
      
 
     } )

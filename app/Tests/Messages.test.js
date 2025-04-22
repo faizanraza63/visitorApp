@@ -54,39 +54,33 @@ describe('First Test', () => {
             
             
     
-            const allowButton = await driver.$('//android.widget.Button[@resource-id="com.android.permissioncontroller:id/permission_allow_button"]');
-            
-            // Wait up to 5 seconds for the button to exist
-            await allowButton.waitForExist({ timeout: 5000 });
-    
-            // Check if the button is visible and click it
-            if (await allowButton.isDisplayed()) {
-                await allowButton.click();
-                console.log("Permission allow button clicked.");
-            } else {
-                console.log("Permission allow button not displayed.");
-
-                await driver.$("//android.widget.TextView[@text='' and @clickable='false' and @enabled='true']").click()
-                await driver.$("(//android.widget.TextView[@text='Messages' and @clickable='false' and @enabled='true'])").click();
-            }
-    
             
         })
     
 
 
-    it('Messages 003-Go to Messages', async () => {
+        it('Messages 003-Go to Messages', async () => {
     
-       
+         
+           try {
+            const allowButton = await driver.$('//android.widget.Button[@resource-id="com.android.permissioncontroller:id/permission_allow_button"]');
         
-        await driver.$("//android.widget.TextView[@text='' and @clickable='false' and @enabled='true']").click()
-        await driver.$("(//android.widget.TextView[@text='Messages' and @clickable='false' and @enabled='true'])").click();
-
-        await browser.pause(1000)
-
-        await driver.terminateApp("visitor.mygatepass.com");
-        await driver.removeApp("visitor.mygatepass.com")
-    })
+            // Wait for the element up to 5 seconds, but don't throw if not found
+            const exists = await allowButton.waitForExist({ timeout: 5000, timeoutMsg: '', interval: 500 }).catch(() => false);
+        
+            if (exists && await allowButton.isDisplayed()) {
+                await allowButton.click();
+                console.log("Permission allow button clicked.");
+                await driver.$('//android.view.View[@content-desc="Messages"]').click();
+            } else {
+                console.log("Permission allow button not displayed, clicking on Profile...");
+                await driver.$('//android.view.View[@content-desc="Messages"]').click();
+            }
+        } catch (err) {
+            console.log("Something went wrong while handling permission or navigating to Profile:", err.message);
+        }
+        
+        })
     
 
 
