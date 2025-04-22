@@ -50,7 +50,7 @@ steps:
 # ✅ Run WebDriverIO Tests with proper env vars
 - script: |
     echo "Running tests with TB_KEY=$TB_KEY"
-    npx wdio run wdio.testingbot.conf.js --spec app/Tests/SignIn.test.js
+    npx wdio run wdio.testingbot.conf.js --spec app/Tests/Messages.test.js
   env:
     NODE_OPTIONS: --dns-result-order=ipv4first 
     TB_KEY: $(TB_KEY)
