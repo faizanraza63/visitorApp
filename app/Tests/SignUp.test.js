@@ -1,48 +1,14 @@
 
 
+import General from "../Page Object/general"
+
 describe('Sign Up Cases', () => {
 
 
     it('SignUp 001- Go to Home Screen', async () => {
 
 
-        
-    
-        const locationPopup = await driver.$('//android.widget.Button[@text="While using the app"]');
-    
-        if(await locationPopup.isDisplayed())
-        {
-            await locationPopup.click()
-            console.log("location popup is clicked")
-    
-        }
-    
-        
-        const nextButton = await driver.$('//android.view.ViewGroup[@clickable="true"]');
-        await nextButton.waitForExist({ timeout: 5000 });
-        await nextButton.click()
-        
-        
-        
-        const simplifyButton = await driver.$('//android.view.ViewGroup[@clickable="true"]');
-        await simplifyButton.click()
-    
-    
-    
-         await simplifyButton.waitForExist({ timeout: 2000 });
-    
-         const englLangBtn = await driver.$("//android.view.ViewGroup[@content-desc='English']");
-         await englLangBtn.click()
-            
-        
-         const element = await driver.$("//android.widget.TextView[@text='SAVE' and @clickable='false' and @enabled='true']");
-         await element.click();
-         
-         
-    
-        // await driver.terminateApp("visitor.mygatepass.com");
-        // await driver.removeApp("visitor.mygatepass.com")
-    
+   await General.gotoHome()
     
     } )
 
@@ -207,9 +173,10 @@ describe('Sign Up Cases', () => {
         }
 
 
-        await driver.pause(1500)
-        await driver.terminateApp("visitor.mygatepass.com");
-        await driver.removeApp("visitor.mygatepass.com")
+        
+
+
+       await General.closeandDeleteAppFromDevice()
 
 
     })

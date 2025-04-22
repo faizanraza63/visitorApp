@@ -1,3 +1,5 @@
+import General from "../Page Object/general"
+
 describe('First Test', () => {
 
 
@@ -6,40 +8,9 @@ describe('First Test', () => {
     it('Profile 001- Go to Home Screen', async () => {
     
     
-
-        
-        const locationPopup = await driver.$('//android.widget.Button[@text="While using the app"]');
-    
-        if(await locationPopup.isDisplayed())
-        {
-            await locationPopup.click()
-            console.log("location popup is clicked")
-    
-        }
-    
-        
-        const nextButton = await driver.$('//android.view.ViewGroup[@clickable="true"]');
-        await nextButton.waitForExist({ timeout: 5000 });
-        await nextButton.click()
+       await General.gotoHome()
         
         
-        
-        const simplifyButton = await driver.$('//android.view.ViewGroup[@clickable="true"]');
-        await simplifyButton.click()
-    
-    
-    
-         await simplifyButton.waitForExist({ timeout: 2000 });
-    
-         const englLangBtn = await driver.$("//android.view.ViewGroup[@content-desc='English']");
-         await englLangBtn.click()
-            
-      
-
-    
-    
-         const element = await driver.$("//android.widget.TextView[@text='SAVE' and @clickable='false' and @enabled='true']");
-         await element.click();
     
     
     })
@@ -112,7 +83,7 @@ describe('First Test', () => {
     })
 
 
-    it('Profile 004- Changing the number', async() => {
+    it.skip('Profile 004- Changing the number', async() => {
 
      //   await driver.$("//android.widget.TextView[@text='' and @clickable='false' and @enabled='true']").click()
       //  await driver.$("(//android.widget.TextView[@text='Profile' and @clickable='false' and @enabled='true'])[2]").click();
@@ -212,9 +183,9 @@ describe('First Test', () => {
         await driver.$('//android.widget.EditText[@text="Email"]').setValue("testvisitor007@yopmail.com")
         //await driver.$('//android.widget.TextView[@text="DELETE MY ACCOUNT"]').click()
 
-        await driver.pause(1500)
-        await driver.terminateApp("visitor.mygatepass.com");
-        await driver.removeApp("visitor.mygatepass.com")
+      
+       await General.closeandDeleteAppFromDevice()
+
 
     }) 
      

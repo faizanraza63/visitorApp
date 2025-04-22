@@ -1,18 +1,13 @@
-
-
-
-
-//import general from "../Page Object/general.js";
+import General from "../Page Object/general"
 
 describe('Sign In Cases', () => {
 
 
 // it.only('Test Page Object', async() => {
 
-//         await general.acceptLocationPopup();
-//         await general.clickNextButton();
-//         await general.clickSimplifyButton();
-
+//     await General.gotoHome()
+//     await General.closeandDeleteAppFromDevice()
+    
 
     
 // })
@@ -22,55 +17,7 @@ describe('Sign In Cases', () => {
 it('SignIn 001- Go to Home Screen', async () => {
 
 
-    
-    
-    const locationPopup = await driver.$('//android.widget.Button[@text="While using the app"]');
-
-    if(await locationPopup.isDisplayed())
-    {
-        await locationPopup.click()
-        console.log("location popup is clicked")
-
-    }
-
-    
-    const nextButton = await driver.$('//android.view.ViewGroup[@clickable="true"]');
-    await nextButton.waitForExist({ timeout: 5000 });
-    await nextButton.click()
-    
-    
-    
-    const simplifyButton = await driver.$('//android.view.ViewGroup[@clickable="true"]');
-    await simplifyButton.click()
-
-
-
-     await simplifyButton.waitForExist({ timeout: 2000 });
-
-     const englLangBtn = await driver.$("//android.view.ViewGroup[@content-desc='English']");
-     await englLangBtn.click()
-        
-    //  const randomNumber = Math.floor(Math.random() * 2);
-
-    //  if(randomNumber==0)
-    //  {
-    //  const englLangBtn = await driver.$("//android.view.ViewGroup[@content-desc='English']");
-    //  await englLangBtn.click()
-    //  }
-    //  else
-    //  {
-    //     const arabicLangBtn = await driver.$("//android.view.ViewGroup[@content-desc='العربية']");
-    //     await arabicLangBtn.click()
-    //  }
-
-
-     const element = await driver.$("//android.widget.TextView[@text='SAVE' and @clickable='false' and @enabled='true']");
-     await element.click();
-     
-     
-     await driver.pause(1500)
-    await driver.terminateApp("visitor.mygatepass.com");
-    await driver.removeApp("visitor.mygatepass.com")
+    await General.gotoHome()
 
 
 } )
@@ -88,7 +35,8 @@ it('SignIn 003- SignIn with invalid Email',async () =>
 {
     await driver.$('//android.widget.EditText[@text="Your email address"]').setValue("testabc");
     await driver.$("//android.widget.TextView[@text='CONTINUE' and @clickable='false' and @enabled='true']").click();
-    
+    await driver.pause(500)
+    await driver.$('//android.widget.EditText[@text="testabc"]').setValue("")
 
 
 })
@@ -131,7 +79,8 @@ it('SignIn 004- SignIn with valid Email',async () =>
         await driver.$("//android.widget.TextView[@text='' and @clickable='false' and @enabled='true']").click();
         await driver.$('//android.widget.TextView[@text="SIGN OUT"]').click()
         
-
+       await General.closeandDeleteAppFromDevice()
+        
     })
 
 
