@@ -79,6 +79,11 @@ describe('First Test', () => {
         } catch (err) {
             console.log("Something went wrong while handling permission or navigating to Profile:", err.message);
         }
+
+
+        await driver.pause(1500)
+        await driver.terminateApp("visitor.mygatepass.com");
+        await driver.removeApp("visitor.mygatepass.com")
         
         })
     
