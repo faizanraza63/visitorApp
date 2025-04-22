@@ -54,7 +54,8 @@ export const config = {
     capabilities: [{
         // capabilities for local Appium web tests on an Android Emulator
         platformName: 'Android',
-        'appium:deviceName': 'emulator-5554',
+        'appium:deviceName': 'R58N91ZJQGE', // Friendly name
+        'appium:udid': 'R58N91ZJQGE',  
         'appium:app': 'H:/Appium/app/VisitorApp.apk',
         'appium:noReset': true,
         'appium:automationName': 'UiAutomator2'

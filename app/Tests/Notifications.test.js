@@ -1,56 +1,41 @@
+import General from "../Page Object/general"
+
 describe('First Test', () => {
 
     it('Notifications 001- Go to Home Screen', async () => {
-    
-    
+        
+        await General.gotoHome()
 
-        
-        const locationPopup = await driver.$('//android.widget.Button[@text="While using the app"]');
-    
-        if(await locationPopup.isDisplayed())
-        {
-            await locationPopup.click()
-            console.log("location popup is clicked")
-    
-        }
-    
-        
-        const nextButton = await driver.$('//android.view.ViewGroup[@clickable="true"]');
-        await nextButton.waitForExist({ timeout: 5000 });
-        await nextButton.click()
-        
-        
-        
-        const simplifyButton = await driver.$('//android.view.ViewGroup[@clickable="true"]');
-        await simplifyButton.click()
-    
-    
-    
-         await simplifyButton.waitForExist({ timeout: 2000 });
-    
-         const englLangBtn = await driver.$("//android.view.ViewGroup[@content-desc='English']");
-         await englLangBtn.click()
-            
-      
-
-    
-    
-         const element = await driver.$("//android.widget.TextView[@text='SAVE' and @clickable='false' and @enabled='true']");
-         await element.click();
-    
     
     })
 
 
-    it('Notifications 002-Go to notification', async () => {
+    it('Notifications 002- SignIn with valid Email',async () => 
+        {
+            await driver.$('//android.widget.EditText[@text="Your email address"]').setValue("visitor007@yopmail.com");;
+            await driver.$("//android.widget.TextView[@text='CONTINUE' and @clickable='false' and @enabled='true']").click();
+            await driver.$('(//android.widget.EditText[@resource-id="textInput"])[1]').setValue("0");
+            await driver.$('(//android.widget.EditText[@resource-id="textInput"])[2]').setValue("8");
+            await driver.$('(//android.widget.EditText[@resource-id="textInput"])[3]').setValue("5");
+            await driver.$('(//android.widget.EditText[@resource-id="textInput"])[4]').setValue("2");
+            await driver.$("//android.widget.TextView[@text='VERIFY' and @clickable='false' and @enabled='true']").click();
+            await General.clickonAllow()
+        })
+
+
+    it('Notifications 003-Go to notification', async () => {
     
        
         
-        //await driver.$("//android.widget.TextView[@text='' and @clickable='false' and @enabled='true']").click()
-        await driver.$('android=new UiSelector().text("")').click();
+    await driver.$("//android.widget.TextView[@text='' and @clickable='false' and @enabled='true']").click()
+       // await driver.$('android=new UiSelector().text("")').click();
 
         await driver.$("(//android.widget.TextView[@text='Notifications' and @clickable='false' and @enabled='true'])").click();
+
+      await General.closeandDeleteAppFromDevice()
+
     })
     
+  
 
 })
